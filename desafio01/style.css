@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color:#0F0D13;
+    --text-color:#E1E1E6;
+}
+
+/* Tudo dentro do elemento .body tem que ter as seguintes propriedades */
+body *{
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+#app{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: 
+    'A B'
+    'A C';
+
+    gap: 32px;
+    place-content: center;
+}
+
+.player{
+    background-color: #2A2141;
+    padding: 28px;
+    border-radius: 10px;
+}
+
+.player img:not(.controls img) {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+
+    border-radius: 6px;
+}
+
+.player	h1{
+    font-size: 24px;
+    margin-bottom: 9.6px;
+}
+
+.player p{
+    font-size: 19px;
+    opacity: 0.67;
+}
+
+/* player-1 */
+/* O PLAYER 1 RECEBE A PROPRIEDADE DE PADDING EM DOIS MOMENTOS NESSE ARQUIVO, NA HASH '#' #PLAYER-1 E NA CLASSE .PLAYER, POR PADRÃO, O CSS FUNCIONA COMO UMA CASCATA, A ULTIMA DEFINIÇÃO É A QUE FICA, ENTRETANTO, COMO EXISTE UMA PROPRIEDADE DE HASH # NO PLAYER 1, A PRÓPRIA SE SOBRESSAI POR SER UMA HASH E NÃO UMA CLASSE */
+#player-1{
+    grid-area: A;
+    padding: 50px 38px;
+}
+#player-1 .wrapper{
+    width: 190px;
+}
+
+#player-1 img:not(.controls img){
+    width: 190px;
+    height: 190px;
+}
+
+#player-1 .info{
+    margin-top: 28px;
+}
+
+/* player-2 */
+#player-2{
+    grid-area: B;
+}
+
+/* player-3 */
+#player-3{
+    grid-area: C;
+}
+
+/* controls */
+.controls {
+    margin-top: 29px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls:not(#player-1 .controls) {
+    padding: 0 50px;
+}
+
+/* track */
+.track {
+    margin-top: 28px;
+    position: relative;
+}
+
+.track::before{
+    opacity: 0.3;
+    background-color: #d9d9d9;
+    border-radius: 9.6px;
+
+    display: block;
+    height: 6px;
+    width: 100%;
+    content: "";
+
+    position: absolute;
+}
+
+.track::after{
+    background-color: #d9d9d9;
+    border-radius: 9.6px;
+
+    display: block;
+    height: 6px;
+    width: 80%;
+    content: "";
+}
+
+/* time */
+.time{
+    margin-top: 9.6px;
+    font-size: 14px;
+    color: #c4c4c4;
+    opacity: 0.7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-wrapper{
+    display: flex;
+    align-items: center;
+    gap:28px;
+}
+
+@media (max-width:720px) {
+    #app{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    #player-1 .wrapper{
+        width: 100%;
+        text-align: center;
+    }
+    .player{    
+        width: 300px;
+        margin: 0 auto;
+    }
+    .player img{
+        width: 100%;
+    }
+    .controls{
+        padding-inline: 30px !important;
+    }
+
+}

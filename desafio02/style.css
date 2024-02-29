@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    --background-color: #D9CDF7;
+    --text-color:#271A45;
+}
+
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+body *{
+    background-color: var(--background-color);
+    font-family: "Lato", sans-serif;
+    line-height: 100%;
+}
+
+#card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 63px;
+}
+
+#card-img{
+    position: relative;
+}
+#card-img button{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+#img-static,#img-animated{
+    width: 449px;
+    height: 222px;
+    object-fit: cover;
+}
+
+#btn-close,#img-animated{
+    display: none;
+}
+
+#card-text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
+
+h4{
+    font-weight: 300;
+    font-size: 16px;
+}
+
+h1{
+    color: var(--text-color);
+    font-family: "Crimson Pro", serif;
+}
+
+p{
+    opacity: 0.67;
+}
+
+#card-text button{
+    line-height: 16px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: transparent;
+    border-radius: 999px;
+    border: 0.5px var(--text-color) solid;
+    font-family: "Lato", sans-serif;
+}
+
+html.animated #btn-360,
+html.animated #img-static{
+    display: none;
+}
+
+html.animated #btn-close, 
+html.animated #img-animated{
+    display: initial;
+}
